@@ -1,0 +1,37 @@
+body{
+	font-family: "Microsoft YaHei",Helvetica,sans-serif;
+	background-color: #f5f5f9;
+}
+body,ul,li,div,p{
+	margin: 0;
+	padding: 0;
+}
+html{
+	font-size: 62.5%;
+}
+.rfz(@px){
+	font-size: @px;
+	[data-dpr^="2"]&{
+	font-size: @px * 2;
+	}
+	[data-dpr^="3"]&{
+	font-size:@px * 3;
+	}
+}
+img{
+	width: 6rem;
+	position: relative;
+	margin-left: 50%;
+	left: -3rem;
+	top: 12rem;
+	display: inline-block;
+}
+span{
+	display: inline-block;
+	.rfz(16px);
+	color: #c0c0c1;
+	position: relative;
+	margin-left: 50%;
+	left: -6.6rem;
+	top: 13rem;
+}

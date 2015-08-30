@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>跳转</title>
+</head>
+<body>
+	
+</body>
+<script type="text/javascript">
+	(function(doc){
+		var ajax = function(json) {
+			var xhr = null,
+				data = json['data'] ? json['data'] : null;
+			if (window.XMLHttpRequest) xhr = new XMLHttpRequest();
+			if (window.ActiveXObject) xhr = new ActiveXObject("Microsoft.XMLHttp");
+			xhr.onreadystatechange = function() {
+				if(xhr.readyState == 4 && xhr.status == 200) {
+					var response = xhr.responseText;
+					json['success'](response);
+				}
+			}
+			xhr.open(json['method'], json['url']);
+			xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded")
+			xhr.send(data);
+		};
+		window.onload = function(){
+		ajax({
+				url: "http://kaohe.zeroling.com/kaohe/state",
+				method: 'POST',
+				success: function(response) {
+					var obj = JSON.parse(response);
+					var text = obj.state;
+					console.log(text[0]);
+					href = "home/" + text[0] + ".html";
+					window.location.href = href; 
+				}
+			});
+	}
+	})(document);
+</script>
+</html>
