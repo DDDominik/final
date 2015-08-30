@@ -70,7 +70,6 @@
 							xue = list[i].querySelector(".xue"),
 							pingpai = list[i].querySelector(".pingpai"),
 							flag = text[i].flag;
-							console.log(qiang);
 
 							if(flag.search("qiang") !== -1){
 								qiang.innerHTML += '<img src="img/qiang.png">';
